@@ -1,2 +1,7 @@
 # WebRTC-Xamarin
 WebRTC for xamarin
+Source: https://github.com/Onotseike/Xamarin.WebRTC.Libraries
+Doc: https://medium.com/xamarin-webrtc
+Please read document step by step and then can run it.
+Issues: 
+1. Small sound on iOS Devices
