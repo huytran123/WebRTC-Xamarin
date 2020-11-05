@@ -70,8 +70,7 @@ namespace WebRTC.DemoApp.SignalRClient
                     roomConnectionParameters.RoomId,
                     roomConnectionParameters.IsInitator,
                     "https://global.xirsys.net/_turn/WebRTCICU");
-                var roomSObject = JObject.Parse(str);
-                var roomParams = roomSObject.ToObject<RoomParameterResponse>();
+                var roomParams = JsonConvert.DeserializeObject<RoomParameterResponse>(str);
                 var _roomSignalingParameters = new SignalingParameters
                 {
                     IsInitiator = roomParams.IsInitiator,

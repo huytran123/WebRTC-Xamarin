@@ -98,6 +98,12 @@ namespace WebRTC.DemoApp.iOS.Renderers
         {
             base.LoadView();
             View = videoCallView;
+
+            var session = RTCAudioSession.SharedInstance;
+            session.UseManualAudio = true;
+            session.IsAudioEnabled = true;
+            session.AddDelegate(this);
+            ConfigureAudioSession();
         }
 
         public override void ViewDidLoad()
@@ -301,11 +307,7 @@ namespace WebRTC.DemoApp.iOS.Renderers
         }
 
         private void StartVideoCallInternal(IVideoRenderer localRenderer, IVideoRenderer remoteRenderer)
-        {
-            var session = RTCAudioSession.SharedInstance;
-            session.UseManualAudio = true;
-            session.IsAudioEnabled = true;
-            ConfigureAudioSession();
+        {     
             StartVideoCall(localRenderer, remoteRenderer);
         }
 

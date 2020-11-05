@@ -429,6 +429,7 @@ namespace WebRTC.Signal.Server.Hubs
                     var _iceServers = await _turnClient.RequestServersAsync();
                     roomParameters.IceServers = _iceServers;
                     roomParameters.OfferSdp = addClientResponse.Item4.SessionDescriptionOffer;
+                    roomParameters.IceCandidates = addClientResponse.Item4.Candidate.ToArray();
                     return JObject.FromObject(roomParameters).ToString();
                 }
             }

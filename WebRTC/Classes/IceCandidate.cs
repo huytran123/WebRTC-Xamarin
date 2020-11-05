@@ -20,12 +20,12 @@ namespace WebRTC.Classes
         }
 
         [JsonProperty("sdp")]
-        public string Sdp { get; }
+        public string Sdp { get; set; }
 
         [JsonProperty("sdpMid")]
-        public string SdpMid { get; }
+        public string SdpMid { get; set; }
 
         [JsonProperty("sdpMLineIndex")]
-        public int SdpMLineIndex { get; }
+        public int SdpMLineIndex { get; set; }
     }
 }
