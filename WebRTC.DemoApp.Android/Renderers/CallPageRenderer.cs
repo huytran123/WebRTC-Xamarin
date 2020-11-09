@@ -107,10 +107,11 @@ namespace WebRTC.DemoApp.Droid.Renderers
     AudioFocus.GainTransient);
                     if(result == AudioFocusRequest.Granted)
                     {
+                        var audioManager = (AudioManager)this.Context.GetSystemService(Context.AudioService);
                         audioManager.SpeakerphoneOn = true;
                         audioManager.Mode = Mode.InCommunication;
-                        audioManager.SetStreamVolume(Stream.VoiceCall, 100, VolumeNotificationFlags.AllowRingerModes);
-                        CallController.StartVideoCall(LocalVideoRenderer, RemoteVideoRenderer);                        
+                        audioManager.SetStreamVolume(Stream.VoiceCall, audioManager.GetStreamMaxVolume(Stream.VoiceCall), VolumeNotificationFlags.PlaySound);
+                        CallController.StartVideoCall(LocalVideoRenderer, RemoteVideoRenderer);
                     }                  
                 }
             }

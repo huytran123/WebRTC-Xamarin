@@ -148,23 +148,11 @@ namespace WebRTC.DemoApp.iOS.Views
             var bounds = Bounds;
 
             if (remoteVideoSize.Width > 0 && remoteVideoSize.Height > 0)
-            {
-                // Aspect fill remote video into bounds.
+            {// Aspect fill remote video into bounds.
 
                 var remoteVideoFrame = bounds.WithAspectRatio(remoteVideoSize);
-                nfloat scale = 1f;
-                if (remoteVideoFrame.Size.Width > remoteVideoFrame.Size.Height)
-                {
-                    // Scale by height.
-                    scale = bounds.Size.Height / remoteVideoFrame.Size.Height;
-                }
-                else
-                {
-                    // Scale by width.
-                    scale = bounds.Size.Width / remoteVideoFrame.Size.Width;
-                }
-
-                remoteVideoFrame.Size = new CGSize(remoteVideoFrame.Size.Width * scale, remoteVideoFrame.Size.Height * scale);
+                nfloat scale = bounds.Size.Height / remoteVideoFrame.Size.Height;
+                remoteVideoFrame.Size = new CGSize(remoteVideoFrame.Size.Width * scale, bounds.Size.Height);
                 RemoteView.Frame = remoteVideoFrame;
                 RemoteView.Center = new CGPoint(bounds.GetMidX(), bounds.GetMidY());
             }

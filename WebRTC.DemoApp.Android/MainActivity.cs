@@ -29,11 +29,11 @@ namespace WebRTC.DemoApp.Droid
 
             Instance = this;
 
-            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            WebRTCPlatform.Init(this);
+            Xamarin.Essentials.Platform.Init(this, savedInstanceState);           
 
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
+            WebRTCPlatform.Init(this);
         }
 
 
